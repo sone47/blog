@@ -1,0 +1,40 @@
+/*
+ * 导航菜单
+ */
+#nav .nav_bg{
+    left: 85px;
+}
+
+/*
+ * 主要部分
+ */
+#sidebar{
+    width: 900px;
+    float: none;
+    margin: 20px auto;
+    overflow: hidden;
+}
+#sidebar .sidebar-div{
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+}
+#sidebar .sidebar-div:last-child {
+    margin-right: 0;
+}
+
+/*响应式*/
+@media only screen and (max-width: 960px){
+    #sidebar{
+        width: 95%;
+        margin-top: 70px;
+    }
+}
+@media only screen and (max-width: 600px){
+    #sidebar{
+        margin: 70px 2.5% 10px 2.5%;
+    }
+    #sidebar .sidebar-div {
+        width: 100%;
+    }
+}

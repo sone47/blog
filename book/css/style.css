@@ -1,0 +1,170 @@
+/*
+ * 导航菜单
+ */
+#nav .nav_bg{
+    left: 170px;
+}
+/*
+ * 主要部分
+ */
+#main{
+    width: 912px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+/*
+ * 书籍图片
+ */
+#photo{
+    width: 900px;
+    margin-top: 10px;
+    float: left;
+}
+#photo{
+    margin: 0 auto;
+}
+#photo dl{
+    width: 200px;
+    height: 303px;
+    margin: 0 12px;
+    float: left;
+}
+#photo dl dt{
+    width: 200px;
+    height: 253px;
+    border: 1px solid #CCC;
+    transition: all 0.5s;
+}
+#photo dl dt:hover{
+    box-shadow: 0 0 10px 2px #eee;
+}
+#photo dl dt img{
+    cursor: pointer;
+}
+#photo dl dd{
+    width: 200px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+#photo dl dd a:hover{
+    color: #777;
+}
+#photo .s-photo{
+    display: none;
+}
+
+/*
+  * 图片预加载
+  */
+#load{
+    width: 600px;
+    height: 701px;
+}
+#load h2{
+    margin: 0;
+}
+#load .big{
+    width: 600px;
+    height: 660px;
+    overflow: hidden;
+    position: relative;
+}
+#load .big img{
+    margin-top: -50px;
+    background: #333;
+}
+#load .big img[src="images/loading.gif"]{
+    margin: 200px 190px;
+}
+#load .big a{
+    display: block;
+    width: 300px;
+    height: 670px;
+    position: absolute;
+    top: 0;
+}
+#load .big a.left{
+    left: 0;
+}
+#load .big a.right{
+    right: 0;
+}
+#load .big a:hover span{
+    opacity: 0.8;
+}
+#load .big a span{
+    display: block;
+    width: 50px;
+    height: 60px;
+    background: #CCC;
+    font-size: 30px;
+    color: #FFF;
+    line-height: 55px;
+    position: absolute;
+    top: 280px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+#load .big a.left span{
+    text-indent: 15px;
+    left: 0;
+}
+#load .big a.right span{
+    text-indent: 15px;
+    right: 0;
+}
+#load .big a.left span:hover{
+    text-indent: 5px;
+}
+#load .big a.right span:hover{
+    text-indent: 25px;
+}
+
+/*响应式*/
+@media only screen and (max-width: 960px){
+    #main{
+        width: 100%;
+        margin-top: 70px;
+    }
+    #photo{
+        width: 100%;
+    }
+    #photo .l-photo{
+        display: none;
+    }
+    #photo .s-photo{
+        display: block;
+        width: 100%;
+    }
+    #photo .s-photo .photo-ul{
+        width: 100%;
+    }
+    #photo .photo-li{
+        width: 23%;
+        margin: 10px 1% 10px 1%;
+        display: block;
+        float: left;
+    }
+    #photo .photo-li a{
+        width: 100%;
+    }
+    #photo .photo-li .photo-img{
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #ccc;
+    }
+}
+@media only screen and (max-width: 769px){
+    #photo .photo-li{
+        width: 29%;
+        margin: 10px 2% 10px 2%;
+    }
+}
+@media only screen and (max-width: 600px){
+    #photo .photo-li{
+        width: 44%;
+        margin: 10px 3% 10px 3%;
+    }
+}

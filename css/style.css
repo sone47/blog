@@ -1,0 +1,1033 @@
+/*
+ *reset
+ */
+body,div,a,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dd,dt,span,input,textarea,select,option,b,strong,img{
+	margin: 0;
+	padding: 0;
+	color: #333;
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+}
+a{
+	text-decoration: none;
+}
+ul,ol{
+	list-style: none;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar-track-piece {
+	background-color:#f5f5f5;
+	border-left:1px solid #d2d2d2;
+}
+::-webkit-scrollbar {
+	width:13px;
+	height:13px;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#c2c2c2;
+	background-clip:padding-box;
+	border:1px solid #979797;
+	min-height:28px;
+}
+::-webkit-scrollbar-thumb:hover {
+	border:1px solid #636363;
+	background-color:#929292;
+}
+
+/*
+ *头部
+ */
+#header{
+	width: 100%;
+	border-bottom: 1px solid #CCC;
+	background: rgba(255,255,255,0.7);
+	position: fixed;
+	top: 0;
+	z-index: 98;
+}
+#header .header{
+	width: 100%;
+	height: 50px;
+	margin: 0 auto;
+}
+/*设置头部-logo部分*/
+#header .logo{
+	width: 100px;
+	height: 50px;
+	line-height:50px;
+    margin-left: 30px;
+	font-size: 27px;
+	float: left;
+}
+#header .menu{
+	width: 100px;
+	float: right;
+}
+#header .center{
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	cursor: pointer;
+    display: none;
+}
+#header .center .arrow{
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-top: 5px solid #999;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	margin-left: 6px;
+	margin-bottom: 1px;
+}
+#header .center:hover .arrow{
+	border-top: 0;
+	border-bottom: 5px solid #999;
+}
+#header .nav-btn{
+	display: none;
+}
+/*
+ * 导航菜单
+ */
+#nav{
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+#nav .nav-content {
+	height:100%;
+}
+#nav .nav-li{
+	float: left;
+	width: 85px;
+	text-align: center;
+	line-height: 50px;
+	font-weight: bold;
+	cursor: pointer;
+	position: relative;
+}
+#nav .nav-li a{
+	display: block;
+}
+#nav .nav_bg{
+	display: block;
+	position: absolute;
+	width: 85px;
+	height: 47px;
+	top: 0;
+	left: 0;
+	border-bottom: 3px solid #00a1d6;
+	transition: left 0.5s;
+	z-index: -1;
+}
+/*设置头部-注册/登录*/
+#header div{
+    font-size: 12px;
+}
+#header .reg,
+#header .login{
+	float: right;
+	width: 35px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+#header .reg:hover,
+#header .login:hover{
+    color: #57A8E4;
+}
+#header .info{
+    float: right;
+    height: 50px;
+    padding-right: 10px;
+    line-height: 50px;
+    display: none;
+}
+/*设置头部-个人中心*/
+#header .selection{
+	list-style: none;
+	width: 100px;
+	height: 0px;
+	border: 1px solid #CCC;
+	border-top: 1px solid #FFF;
+	padding: 10px 0 0;
+	background: #FFF;
+	display: none;
+	opacity: 0;
+	position: absolute;
+	overflow: hidden;
+}
+#header .selection li{
+	height: 25px;
+	line-height: 25px;
+    letter-spacing: 1px;
+}
+#header .selection a{
+	display: block;
+	height: 25px;
+	text-indent: 35px;
+	font-size: 12px;
+	transition: all 1s;
+}
+#header .selection a:hover{
+	color: #FFF;
+	background: #CCC url('../images/arrow.gif') no-repeat 60px center;
+	text-indent: 30px;
+}
+
+/*
+ *锁屏
+ */
+ #screen{
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	background: rgba(0,0,0,0.2);
+ 	z-index: 99;
+ 	display: none;
+ 	opacity: 0;
+ }
+
+/*
+ *登录/注册框
+ */
+#load,
+#reg,
+#login{
+	width: 350px;
+	height: 252px;
+	border: 1px solid #CCC;
+	position: absolute;
+	background:rgba(255,255,255,0.94);
+	display: none;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: 100;
+}
+#login{
+    width: 100%;
+    max-width: 350px;
+}
+#load h2,
+#reg h2,
+#login h2{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 18px;
+	letter-spacing: 1px;
+	color: #666;
+	border-bottom: 1px solid #CCC;
+	position: relative;
+	margin-bottom: 25px;
+	cursor: move;
+}
+#login h2{
+    margin-bottom: 0;
+}
+h2 .close{
+	text-decoration: none;
+	background: url(../images/close.png) 0px 1px;
+	display: block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	border: 1px solid #CCC;
+	color: #000;
+	font-size: 16px;
+	margin-top: -1px;
+	margin-right: -1px;
+	position: absolute;
+	top:10px;
+	right: 10px;
+}
+#login div.info{
+    padding: 15px 0 8px 106px;
+    opacity: 0;
+}
+#login div.info span{
+    font-size: 12px;
+    color: #F00;
+}
+#login div.email,
+#login div.pass{
+	color: #666;
+	padding: 7px 0;
+	text-align: center;
+    font-size: 12px;
+}
+#reg dl dd input.text,
+#reg dl dd select,
+#login input.text{
+	width: 200px;
+	height: 25px;
+	border: 1px solid #CCC;
+	background: #FFF;
+	font-size: 14px;
+	text-indent: 7px;
+}
+#login .button{
+	text-align: center;
+    position: relative;
+}
+#reg dl dd.submit input,
+#login input.submit{
+	width: 107px;
+	height: 30px;
+	border: 1px solid #CCC;
+	background: #FFF;
+	margin-top: 20px;
+	cursor: pointer;
+    font-size: 12px;
+    color: #999;
+}
+#reg dl dd.usable input,
+#login input.usable{
+    color: #333;
+}
+#reg dl dd.usable input:hover,
+#login input.usable:hover{
+    border-color: #57A8E4;
+}
+#login img.loading{
+    position: absolute;
+    left:124px;
+    top:26px;
+    display: none;
+}
+#login div.other{
+	text-align: right;
+	padding: 20px 10px;
+	font-size: 12px;
+}
+#login div.other a{
+	text-decoration: none;
+	color: #666;
+	font-size: 12px;
+}
+#login div.other a:hover{
+	text-decoration: underline;
+}
+
+/*
+ *注册框
+ */
+#reg{
+	width: 600px;
+	height: 650px;
+}
+#reg dl{
+	margin-left: 40px;
+}
+#reg dl dd{
+	color: #666;
+	height: 40px;
+	padding: 5px 0;
+}
+#reg dl dd input.text{
+	color: #666;
+}
+#reg dl dd.birthday select{
+	width: 70px;
+}
+#reg dl dd textarea{
+	width: 360px;
+	height: 100px;
+	background: #FFF;
+	border: 1px solid #CCC;
+    resize : none;
+}
+#reg dl dd.submit input{
+	width: 143px;
+	height: 33px;
+	margin-left: 160px;
+	margin-top: 0;
+	font-size: 14px;
+}
+#reg dl dd span{
+	color: #999;
+	font-size: 12px;
+}
+#reg dl dd span.ok{
+	padding-top: 3px;
+	padding-left: 15px;
+	background: url(../images/reg_icon.png) 0 -251px no-repeat;
+}
+#reg dl dd.name span{
+	display: inline-block;
+}
+#reg dl dd.name span.name-empty,
+#reg dl dd.name span.name-over{
+	background: url(../images/reg_icon.png) 0 -353px no-repeat;
+	padding-left: 15px;
+	color: rgb(225,106,106);
+}
+#reg dl dd.name .ok{
+	padding-top: 15px;
+}
+#reg dl dd.pass{
+	position: relative;
+}
+#reg dl dd.pass div{
+	width: 158px;
+    height: 71px;
+    padding-top: 6px;
+    padding-left: 10px;
+	background: url(../images/reg_icon.png) 0 0 no-repeat;
+	position: absolute;
+	left: 288px;
+	top: -14px;
+	display: none;
+}
+#reg dl dd.pass div b{
+	display: inline-block;
+	height: 22px;
+	font-size: 12px;
+	line-height: 22px;
+	padding-left: 18px;
+	background: url(../images/reg_icon.png) 0 -216px no-repeat;
+}
+#reg dl dd.pass>span{
+	display: inline-block;
+	width: 70px;
+	height: 20px;
+	padding-left: 70px;
+}
+#reg dl dd.pass span.pass-strength-1{
+	background: url(../images/reg_icon.png) 0 -101px no-repeat;
+	color: #ff9c3a;
+}
+#reg dl dd.pass span.pass-strength-2{
+	background: url(../images/reg_icon.png) 0 -143px no-repeat;
+	color: #61d01c;
+}
+#reg dl dd.pass span.pass-strength-3{
+	background: url(../images/reg_icon.png) 0 -191px no-repeat;
+	color: #61d01c;
+}
+#reg dl dd span.error,
+#reg dl dd.confirm span.confirm-blur,
+#reg dl dd.confirm span.confirm-diff,
+#reg dl dd span.unselected,
+#reg dl dd.ans span.ans-error,
+#reg dl dd.ans span.ans-empty,
+#reg dl dd.email span.email-error,
+#reg dl dd.email span.email-repeat,
+#reg dl dd.email span.email-empty{
+	padding-left: 15px;
+	background: url(../images/reg_icon.png) 0 -353px no-repeat;
+	color: rgb(225,106,106);
+	width: 200px;
+}
+#reg dl dd.email span.loading{
+    background: url("../images/email_loading.gif") no-repeat;
+    width: 200px;
+    height: 18px;
+    background-size: 18px;
+    display: inline-block;
+    vertical-align: -2px;
+}
+#reg dl dd.email ul{
+	width: 200px;
+	height: 207px;
+	border: 1px solid #CCC;
+	border-top: none;
+	background: #FFF;
+	position: relative;
+	margin-left: 77px;
+	display: none;
+}
+#reg dl dd.email ul li{
+	height: 22px;
+	width: 180px;
+	margin: 0 auto;
+	line-height: 22px;
+	text-indent: 7px;
+	font-size: 12px;
+	border-bottom: 1px solid #E5E2FD;
+}
+#reg dl dd.email ul li.on{
+	background: #57A8E4;
+	color: #FFF;
+}
+#reg dl dd.email ul li.on b{
+    color: #FFF;
+}
+#reg dl dd.email ul li:last-child{
+    border-bottom: none;
+}
+#reg dl dd.email ul li b{
+    font-weight: normal;
+    font-size: 12px;
+}
+#reg dl dd.ps{
+	height:105px
+}
+#reg dl dd.ps b{
+	color: #666;
+	font-size: 14px;
+	vertical-align:87px;
+    font-weight: normal;
+}
+#reg dl dd.ps-num{
+	float: right;
+	margin-right: 130px;
+	font-size: 12px;
+}
+#reg dl dd.ps-num b{
+	font-size: 22px;
+	font-family: Constantia, Georgia;
+}
+#reg dl dd.submit{
+	clear: right;
+}
+
+/*
+ * 加载/成功
+ */
+#loading,#success{
+	position: absolute;
+	width: 135px;
+	height:40px;
+	padding: 5px 10px;
+	background: #FFF;
+	border: 1px solid #CCC;
+    display: none;
+    z-index: 999;
+}
+#loading p,
+#success p{
+	width: 135px;
+	height:40px;
+	background: url("../images/loading2.gif") no-repeat;
+	text-indent: 50px;
+	line-height: 40px;
+	font-size: 12px;
+}
+#success p{
+    background: url("../images/success.png") no-repeat;
+    background-size: 27%;
+}
+
+/*
+ * 主要部分
+ */
+#main{
+	width: 100%;
+	max-width: 900px;
+	margin: 70px auto 20px auto;
+	overflow: hidden;
+}
+/*轮播器*/
+#banner{
+	width: 100%;
+	margin-bottom: 20px;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+#banner ul.img{
+	width: 500%;
+	margin-left: 0;
+}
+#banner ul.img li{
+	width: 20%;
+	float: left;
+}
+#banner ul.img li img{
+	width: 100%;
+	display: block;
+}
+#banner div.btn-wrap{
+	width: 100%;
+	height: 35px;
+	background: rgba(100,100,100,0.5);
+	position: absolute;
+	bottom: 0;
+}
+#banner ul.btn{
+	width: 75px;
+	height: 35px;
+	line-height: 35px;
+	margin: 0 auto;
+}
+#banner ul.btn li{
+	width: 25px;
+	text-align: center;
+	float: left;
+}
+#banner ul.btn li a{
+	display: inline-block;
+	font-size: 24px;
+}
+#banner div.btn-wrap p{
+	height: 35px;
+	line-height: 35px;
+	position: absolute;
+	bottom: 0;
+	left: 20px;
+	color: #EEE;
+}
+/*
+ * 留言
+ */
+#message{
+	width: 630px;
+	height: 580px;
+	float: right;
+}
+#message .publish{
+	width: 628px;
+	border: 1px solid #CCC;
+	height: 203px;
+	background: #EEE;
+	overflow: hidden;
+	position: relative;
+}
+#message .publish h2{
+	margin: 15px 10px 0;
+	height: 21px;
+	color: #666;
+}
+#message .publish textarea{
+	width: 590px;
+	height: 100px;
+	padding: 5px 10px;
+	margin: 5px 9px;
+	resize : none;
+	background: #FFF;
+	border: 1px solid #CCC;
+	letter-spacing: 1px;
+}
+#message .publish div.success{
+	text-indent: 25px;
+	position: absolute;
+	top:80px;
+	left: 260px;
+	background: url("../images/publish_success.png") no-repeat;
+	background-size: 20px;
+	display: none;
+}
+#message .publish p{
+	font-size: 12px;
+	float: left;
+	margin-left: 12px;
+	margin-top: 5px;
+	color: #666;
+	letter-spacing: 1px;
+}
+#message .publish p input{
+	width: 150px;
+	height: 22px;
+	text-indent: 5px;
+	line-height: 22px;
+	font-size: 12px;
+}
+#message .publish a{
+	display: block;
+	float: right;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #CCC;
+	color: #999;
+	background: #FFF;
+	margin-right: 8px;
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+#message .publish a.usable{
+	color: #333;
+}
+#message .publish a.usable:hover{
+	border-color: #57A8E4;
+}
+#message ul.message_border{
+	width: 628px;
+	height: 353px;
+	margin-top: 10px;
+	border: 1px solid #CCC;
+	overflow-y: scroll;
+	background: #FFF;
+}
+#message ul.message_border li{
+	min-height: 60px;
+	width: 510px;
+	line-height: 25px;
+	padding: 5px 10px;
+	margin: 10px 5px 10px 70px;
+	border: 1px solid #CCC;
+	position: relative;
+	background: #EEE;
+	letter-spacing: 1px;
+}
+#message ul.message_border li a{
+	display: block;
+	height: 52px;
+	width: 52px;
+	line-height: 12px;
+	left: -62px;
+	top:0;
+	text-align: center;
+	font-size:12px;
+	position: absolute;
+}
+#message ul.message_border li a .name{
+	font-size: 12px;
+}
+#message ul.message_border li img{
+	margin-bottom: 5px;
+	border: 1px solid #CCC;
+}
+#message ul.message_border li span.time{
+	display: block;
+	width: 510px;
+	font-size: 12px;
+	text-align: right;
+}
+/*侧栏*/
+#sidebar{
+	width: 250px;
+	float: left;
+}
+#sidebar .sidebar-div{
+	margin-bottom: 10px;
+}
+#sidebar h2{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	background: #FFF;
+	text-indent: 10px;
+	border: 1px solid #CCC;
+}
+#sidebar ul{
+	border: 1px solid #CCC;
+	border-top: none;
+}
+#sidebar ul li{
+	height: 30px;
+	line-height: 30px;
+	text-indent: 30px;
+	background: url(../images/arrow-passage.gif) no-repeat 10px 8px;
+}
+#sidebar ul li:hover{
+	text-decoration: underline;
+}
+
+/*
+ * 分享侧栏
+ */
+ #share{
+ 	width: 120px;
+ 	height: 340px;
+ 	border: 1px solid #CCC;
+ 	background: rgb(255,255,255);
+ 	left: -122px;
+ 	position: absolute;
+ 	transition: left 1s;
+ }
+#share:hover{
+ 	left: 0;
+}
+ #share h2{
+ 	height: 30px;
+ 	line-height: 30px;
+ 	background: #EEE;
+ 	font-size :14px;
+ 	text-indent: 10px;
+ 	color: #666;
+ }
+ #share ul{
+	list-style: none;
+	padding: 5px;
+ }
+ #share li a{
+ 	display: block;
+ 	line-height: 30px;
+ 	text-align: center;
+ }
+ #share li a:hover{
+ 	background: #EEE;
+ 	border-radius: 5px;
+ }
+ #share .more{
+ 	height: 30px;
+ 	background: #EEE;
+ 	display: block;
+ 	padding-right: 10px;
+ 	text-align: right;
+ 	line-height: 30px;
+ 	transition: color 0.3s;
+ }
+ #share .more:hover{
+ 	color: #00a9e0;
+ }
+ #share span{
+ 	font-size: 16px;
+ 	color: #FFF;
+ 	height: 70px;
+ 	width: 27px;
+ 	padding-top: 20px;
+ 	line-height: 25px;	
+ 	text-align: center;
+ 	border: 1px solid transparent;
+ 	border-right: none;
+ 	border-top-right-radius: 5px;
+ 	border-bottom-right-radius: 5px;
+ 	background: #BBB;
+ 	top: 60px;
+ 	left: 120px;
+ 	position: absolute;
+ 	cursor: pointer;
+ }
+ /*
+  * 脚页
+  */
+#footer{
+	width: 100%;
+    height: 70px;
+    line-height: 90px;
+    margin: 0 auto;
+    border-top: 1px solid #DDD;
+    font-size: 12px;
+    text-align: center;
+    color: #888;
+}
+#footer span{
+    font-size: 12px;
+    color: #888;
+    padding-left: 15px;
+}
+#footer span a{
+    font-size: 12px;
+    color: #666;
+}
+#footer span a:hover{
+    text-decoration: underline;
+}
+#footer small{
+    padding-left: 15px;
+}
+
+/*响应式--媒体查询*/
+@media only screen and (max-width: 1149px){
+	#share {
+		display: none;
+	}
+}
+@media only screen and (max-width: 960px){
+	#header{
+		background: #fff;
+	}
+	/*使logo居中*/
+	#header .logo{
+		float: none;
+		text-align: center;
+		margin: 0 auto;
+	}
+	#header .header-right{
+		display: none;
+	}
+	#nav .nav_bg {
+		display: none;
+	}
+	/*点击导航按钮时,导航按钮动画*/
+	#header .nav-btn{
+		position: absolute;
+		top:0;
+		right: 10px;
+		padding: 10px;
+		background-image: none;
+		border-radius: 4px;
+		margin-top: 10px;
+		border: 0;
+		cursor: pointer;
+		display: block;
+		z-index: 999;
+	}
+	#header .nav-btn span {
+		display: block;
+		width: 20px;
+		height: 2px;
+		margin-bottom: 5px;
+		position: relative;
+		background: #cdcdcd;
+		border-radius: 3px;
+		z-index: 1;
+		transform-origin: 20px;
+		transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+	}
+	/*利用transform属性来改变横条的旋转角度*/
+	.nav-btn.toggle-animate span
+	{
+		opacity: 1;
+		transform: rotate(45deg);
+	}
+	.nav-btn.toggle-animate span:nth-last-child(2)
+	{
+		opacity: 0;
+	}
+	.nav-btn.toggle-animate span:nth-last-child(3)
+	{
+		opacity: 1;
+		transform: rotate(-45deg);
+	}
+	/*遮罩*/
+	#screen.mobile{
+		display: block;
+	}
+	#nav{
+		height: 0;
+		width: 100%;
+		background: #fff;
+		overflow: hidden;
+	}
+	#header .nav .nav-li{
+		width: 100%;
+		height: 60px;
+		line-height: 60px;
+		font-size: 12px;
+		float: none;
+	}
+	#header .nav .nav-li a{
+		font-size: 12px;
+	}
+	#header .nav .nav-li a:hover{
+		color: #57A8E4;
+	}
+
+	#main{
+		width: 100%;
+		max-width: 960px;
+		margin-top: 50px;
+	}
+	/*改变留言板*/
+	#message{
+		width: 95%;
+		margin: 20px auto;
+		clear: left;
+		float: none;
+	}
+	#message .publish{
+		width: 100%;
+	}
+	#message .publish textarea{
+		width: 95%;
+		margin: 5px 1.5%;
+		padding: 5px 1%;
+	}
+	#message .publish div.success{
+		left: 50%;
+		margin-left: -40px;
+	}
+	#message .publish p{
+		font-size: 12px;
+		float: left;
+		margin-left: 12px;
+		margin-top: 5px;
+	}
+	#message .publish p input{
+		width: 120px;
+	}
+	#message .publish a{
+		margin-right: 1.5%;
+	}
+	#message ul.message_border{
+		width: 100%;
+	}
+	#message ul.message_border li{
+		width: 85%;
+		padding: 5px 2%;
+		margin: 10px 2% 10px 9.5%;
+	}
+	#message ul.message_border li a{
+		display: block;
+		max-height: 52px;
+		width: 8%;
+		max-width: 52px;
+		left: -9.5%;
+		font-size:12px;
+		position: absolute;
+	}
+	#message ul.message_border li img{
+		width: 100%;
+		display: block;
+	}
+	#message ul.message_border li span.time{
+		width: 100%;
+	}
+	/*使侧栏掉下去*/
+	#sidebar{
+		width: 95%;
+		float: none;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	#sidebar .sidebar-div{
+		width: 30%;
+		margin-right: 5%;
+		margin-bottom: 0;
+		float: left;
+	}
+	#sidebar .sidebar-div:last-child{
+		margin-right: 0;
+	}
+	#sidebar .sidebar-div h2,
+	#sidebar .sidebar-div ul{
+		text-align: left;
+	}
+}
+@media only screen and (max-width: 768px){
+	#message ul.message_border li{
+		min-height: 50px;
+		margin-top: 40px;
+	}
+	#message ul.message_border li a{
+		top:-30px;
+		text-align: left;
+		position: absolute;
+	}
+	#message ul.message_border li a .name{
+		width: 500%;
+		font-size: 12px;
+		position: absolute;
+		left: 120%;
+		top: 10px;
+	}
+}
+@media only screen and (max-width: 600px){
+
+	/*main部分*/
+	#message ul.message_border li a{
+		min-height: 25px;
+		min-width: 25px;
+	}
+	#sidebar{
+		width: 95%;
+		float: none;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	#sidebar .sidebar-div{
+		width: 100%;
+		margin-bottom: 10px;
+		float: left;
+	}
+	#sidebar .sidebar-div h2,
+	#sidebar .sidebar-div ul{
+		text-align: left;
+	}
+}
+@media only screen and (max-height: 560px){
+    #reg .birthday,
+    #reg .ps,
+    #reg .ps-num{
+        display: none;
+    }
+}

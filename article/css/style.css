@@ -1,0 +1,26 @@
+/*
+ * 导航菜单
+ */
+#nav .nav_bg{
+    left: 85px;
+}
+
+/*
+ * 主要部分
+ */
+#main{
+}
+
+/*响应式*/
+@media only screen and (max-width: 960px){
+    #main{
+        margin-top: 90px;
+    }
+}
+@media only screen and (max-width: 600px){
+    #main{
+        width: 100%;
+        margin: 50px auto 0 auto;
+    }
+
+}

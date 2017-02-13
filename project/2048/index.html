@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>2048</title>
+	<link rel="stylesheet" href="2048.css">
+	<script type="text/javascript" src="jquery2.0.3.js"></script>
+	<script type="text/javascript" src="support2048.js"></script>
+	<script type="text/javascript" src="showanimation2048.js"></script>
+	<script type="text/javascript" src="main2048.js"></script>
+</head>
+<body>
+	<header>
+		<h1>2048</h1>
+		<p>score: <span id="score">0</span></p>
+	</header>
+
+	<div id="grid-container">
+		<div class="grid-cell" id="grid-cell-0-0"></div>
+		<div class="grid-cell" id="grid-cell-0-1"></div>
+		<div class="grid-cell" id="grid-cell-0-2"></div>
+		<div class="grid-cell" id="grid-cell-0-3"></div>
+
+		<div class="grid-cell" id="grid-cell-1-0"></div>
+		<div class="grid-cell" id="grid-cell-1-1"></div>
+		<div class="grid-cell" id="grid-cell-1-2"></div>
+		<div class="grid-cell" id="grid-cell-1-3"></div>
+		
+		<div class="grid-cell" id="grid-cell-2-0"></div>
+		<div class="grid-cell" id="grid-cell-2-1"></div>
+		<div class="grid-cell" id="grid-cell-2-2"></div>
+		<div class="grid-cell" id="grid-cell-2-3"></div>
+		
+		<div class="grid-cell" id="grid-cell-3-0"></div>
+		<div class="grid-cell" id="grid-cell-3-1"></div>
+		<div class="grid-cell" id="grid-cell-3-2"></div>
+		<div class="grid-cell" id="grid-cell-3-3"></div>
+	</div>
+
+	<footer>
+		<a href="javascript:newGame();" id="newGameBtn">New Game</a>
+	</footer>
+
+	<script>
+		document.getElementById("grid-container").addEventListener('touchstart',function(e) {
+			startx = e.touches[0].pageX;
+			starty = e.touches[0].pageY;
+		});
+
+		document.getElementById("grid-container").addEventListener('touchmove',function(e) {
+			e.preventDefault();
+		});
+
+		document.getElementById("grid-container").addEventListener('touchend',function(e) {
+			endx = e.changedTouches[0].pageX;
+			endy = e.changedTouches[0].pageY;
+
+			var deltax = endx - startx,
+				deltay = endy - starty;
+			if(Math.abs(deltax) < 0.1 * docWidth && Math.abs(deltay) < 0.1 * docWidth) {
+				return ;
+			}
+			if(Math.abs(deltax) >= Math.abs(deltay)) {
+				if(deltax > 0) {
+					if(moveRight()) {
+						setTimeout(generateNumber,210);
+						setTimeout(isGameOver,300);
+					}
+				} else{
+					if(moveLeft()) {
+						setTimeout(generateNumber,210);
+						setTimeout(isGameOver,300);
+					}
+				}
+			}else {
+				if(deltay > 0) {
+					if(moveDown()) {
+						setTimeout(generateNumber,210);
+						setTimeout(isGameOver,300);
+					}
+				} else{
+					if(moveUp()) {
+						setTimeout(generateNumber,210);
+						setTimeout(isGameOver,300);
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

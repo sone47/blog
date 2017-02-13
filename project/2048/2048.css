@@ -1,0 +1,60 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+/* header */
+header{
+	display: block;
+	margin: 0 auto;
+	max-width: 500px;
+	width: 100%;
+	text-align: center;
+}
+h1{
+	font-family: Arial;
+	font-size: 30px;
+	font-weight: bold;
+}
+header p {
+	font-family: Arial;
+	font-size: 20px;
+	margin: 20px auto;
+}
+
+/* footer */
+#newGameBtn{
+	display: block;
+	margin: 20px auto;
+	margin-bottom: 0;
+	width: 100px;
+	padding: 10px 10px;
+	background: #fff;
+	font-family: Arial;
+	color: #333;
+	text-decoration: none;
+	text-align: center;
+	border: 1px solid #000;
+}
+#newGameBtn:hover {
+	background: #eee;
+}
+
+/* mian */
+#grid-container {
+	margin: 10px auto;
+	background: #fff;
+	border: 1px solid #000;
+	position: relative;
+}
+.grid-cell{
+	background: #eee;
+	position: absolute;
+}
+.number-cell{
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 40px;
+	text-align: center;
+	color: #fff;
+	position: absolute;
+}
