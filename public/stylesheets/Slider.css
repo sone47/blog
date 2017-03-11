@@ -1,0 +1,46 @@
+#banner {
+	overflow: hidden;
+	background: #333;
+	width: 100%;
+	position: relative;
+}
+#banner ul, #banner li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+#banner li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+}
+#banner li img{
+	display: block;
+}
+#banner .swipe-btn {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 10%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #000;
+	opacity: 0.5;
+}
+#banner .swipe-btn a.on {
+	background: #00a1d6;
+}
+#banner .swipe-btn a {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin: 4px;
+	background: #fff;
+	float: left;
+}

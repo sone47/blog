@@ -1,0 +1,145 @@
+#nav .nav_bg{
+	left: 0;
+}
+/*轮播器*/
+#banner{
+	margin-bottom: 20px;
+}
+
+/*
+ * 留言
+ */
+#message{
+	width: 630px;
+	height: 580px;
+	float: right;
+}
+#message .publish{
+	width: 628px;
+	border: 1px solid #CCC;
+	height: 203px;
+	background: #EEE;
+	overflow: hidden;
+	position: relative;
+}
+#message .publish h2{
+	margin: 15px 10px 0;
+	height: 21px;
+	color: #666;
+}
+#message .publish textarea{
+	width: 590px;
+	height: 100px;
+	padding: 5px 10px;
+	margin: 5px 9px;
+	resize : none;
+	background: #FFF;
+	border: 1px solid #CCC;
+}
+#message .publish div.success{
+	text-indent: 25px;
+	position: absolute;
+	top:80px;
+	left: 260px;
+	background: url("../images/publish_success.png") no-repeat;
+	background-size: 20px;
+	display: none;
+}
+#message .publish .input-wrap{
+	float: left;
+	margin-left: 10px;
+}
+#message .publish .input-wrap input.name,
+#message .publish .input-wrap input.email{
+	width: 100px;
+	height: 26px;
+	text-indent: 5px;
+	line-height: 30px;
+	font-size: 12px;
+}
+#message .publish .btn{
+	display: block;
+	float: right;
+	width: 20%;
+	height: 30px;
+	border: 1px solid #CCC;
+	color: #999;
+	background: #FFF;
+	margin-right: 8px;
+	font-size: 12px;
+	text-align: center;
+	cursor: auto;
+}
+#message .publish .usable{
+	color: #333;
+	cursor: pointer;
+}
+#message .publish .usable:hover{
+	border-color: #57A8E4;
+}
+#message ul.message_list{
+	width: calc(100% - 2px);
+	height: 353px;
+	margin-top: 10px;
+	border: 1px solid #CCC;
+	overflow-y: scroll;
+	background: #FFF;
+}
+#message ul.message_list li{
+	min-height: 40px;
+	width: 580px;
+	line-height: 25px;
+	padding: 5px 10px;
+	margin: 10px auto;
+	border: 1px solid #CCC;
+	position: relative;
+	background: #EEE;
+	letter-spacing: 1px;
+}
+#message ul.message_list li .info{
+	display: block;
+	width: 100%;
+	font-size:12px;
+	overflow: hidden;
+}
+#message ul.message_list li .name{
+	float: left;
+	font-size: 12px;
+}
+#message ul.message_list li .time{
+	float: right;
+	font-size: 12px;
+}
+@media only screen and (max-width: 960px){
+	#main{
+		width: 100%;
+		max-width: 960px;
+		margin-top: 50px;
+	}
+	/*改变留言板*/
+	#message{
+		width: 95%;
+		margin: 20px auto;
+		clear: left;
+		float: none;
+	}
+	#message .publish{
+		width: 100%;
+	}
+	#message .publish textarea{
+		width: 95%;
+		margin: 5px 1.5%;
+		padding: 5px 1%;
+	}
+	#message .publish div.success{
+		left: 50%;
+		margin-left: -40px;
+	}
+	#message .publish .btn{
+		margin-right: 1.5%;
+	}
+	#message ul.message_list li{
+		width: 90%;
+		margin: 5px auto;
+	}
+}

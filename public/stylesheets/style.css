@@ -1,0 +1,392 @@
+/*
+ *reset
+ */
+body,div,a,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dd,dt,span,input,textarea,select,option,b,strong,img{
+	margin: 0;
+	padding: 0;
+	color: #333;
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+}
+a{
+	text-decoration: none;
+}
+ul,ol{
+	list-style: none;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar-track-piece {
+	background-color:#f5f5f5;
+	border-left:1px solid #d2d2d2;
+}
+::-webkit-scrollbar {
+	width:13px;
+	height:13px;
+}
+::-webkit-scrollbar-thumb {
+	background-color:#c2c2c2;
+	background-clip:padding-box;
+	border:1px solid #979797;
+	min-height:28px;
+}
+::-webkit-scrollbar-thumb:hover {
+	border:1px solid #636363;
+	background-color:#929292;
+}
+
+/*
+ *头部
+ */
+#header{
+	width: 100%;
+	padding: 0 200px 0 20px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #CCC;
+	background: rgba(255,255,255,0.7);
+	position: fixed;
+	top: 0;
+	z-index: 98;
+}
+#header .header{
+	width: 100%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+/*设置头部-logo部分*/
+#header .logo{
+	width: 100px;
+	height: 50px;
+	line-height:50px;
+    text-align: center;
+	font-size: 27px;
+	float: left;
+}
+#header .nav-btn{
+	display: none;
+}
+/*
+ * 导航菜单
+ */
+#nav{
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	float: right;
+}
+#nav .nav-content {
+	overflow: hidden;
+}
+#nav .nav-li{
+	float: left;
+	width: 85px;
+	text-align: center;
+	line-height: 50px;
+	font-weight: bold;
+	cursor: pointer;
+	position: relative;
+}
+#nav .nav-li a{
+	display: block;
+	height: 50px;
+}
+#nav .nav_bg{
+	display: block;
+	position: absolute;
+	width: 85px;
+	height: 3px;
+	background: #00a1d6;
+	bottom: 0;
+	left: 0;
+	transition: left 0.3s;
+}
+
+/*
+ * 加载/成功
+ */
+#loading,#success{
+	position: absolute;
+	width: 135px;
+	height:40px;
+	padding: 5px 10px;
+	background: #FFF;
+	border: 1px solid #CCC;
+    display: none;
+    z-index: 999;
+}
+#loading p,
+#success p{
+	width: 135px;
+	height:40px;
+	background: url("../images/loading2.gif") no-repeat;
+	text-indent: 50px;
+	line-height: 40px;
+	font-size: 12px;
+}
+#success p{
+    background: url("../images/success.png") no-repeat;
+    background-size: 27%;
+}
+
+/*
+ * 主要部分
+ */
+#main{
+	width: 100%;
+	max-width: 900px;
+	margin: 70px auto 20px auto;
+	overflow: hidden;
+}
+
+/*侧栏*/
+#sidebar{
+	width: 250px;
+	float: left;
+}
+#sidebar .sidebar-div{
+	margin-bottom: 10px;
+}
+#sidebar h2{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	background: #FFF;
+	text-indent: 10px;
+	border: 1px solid #CCC;
+}
+#sidebar ul{
+	border: 1px solid #CCC;
+	border-top: none;
+}
+#sidebar ul li{
+	height: 30px;
+	line-height: 30px;
+	text-indent: 30px;
+	background: url(../images/arrow-passage.gif) no-repeat 10px 8px;
+}
+#sidebar ul li:hover{
+	text-decoration: underline;
+}
+
+/*
+ * 分享侧栏
+ */
+#share{
+	width: 120px;
+	height: 340px;
+	border: 1px solid #CCC;
+	background: rgb(255,255,255);
+	left: -122px;
+	position: absolute;
+	transition: left 1s;
+}
+#share:hover{
+ 	left: 0;
+}
+#share h2{
+	height: 30px;
+	line-height: 30px;
+	background: #EEE;
+	font-size :14px;
+	text-indent: 10px;
+	color: #666;
+}
+#share ul{
+	list-style: none;
+	padding: 5px;
+}
+#share li a{
+	display: block;
+	line-height: 30px;
+	text-align: center;
+}
+#share li a:hover{
+	background: #EEE;
+	border-radius: 5px;
+}
+#share .more{
+	height: 30px;
+	background: #EEE;
+	display: block;
+	padding-right: 10px;
+	text-align: right;
+	line-height: 30px;
+	transition: color 0.3s;
+}
+#share .more:hover{
+	color: #00a9e0;
+}
+#share span{
+	font-size: 16px;
+	color: #FFF;
+	height: 70px;
+	width: 27px;
+	padding-top: 20px;
+	line-height: 25px;	
+	text-align: center;
+	border: 1px solid transparent;
+	border-right: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background: #BBB;
+	top: 60px;
+	left: 120px;
+	position: absolute;
+	cursor: pointer;
+}
+/*
+* 脚页
+*/
+#footer{
+	width: 100%;
+    height: 70px;
+    line-height: 90px;
+    margin: 0 auto;
+    border-top: 1px solid #DDD;
+    font-size: 12px;
+    text-align: center;
+    color: #888;
+}
+#footer span{
+    font-size: 12px;
+    color: #888;
+    padding-left: 15px;
+}
+#footer span a{
+    font-size: 12px;
+    color: #666;
+}
+#footer span a:hover{
+    text-decoration: underline;
+}
+#footer small{
+    padding-left: 15px;
+}
+
+/*响应式--媒体查询*/
+@media only screen and (max-width: 1149px){
+	#share {
+		display: none;
+	}
+}
+@media only screen and (max-width: 960px){
+	#header{
+		box-sizing: content-box;
+		padding: 0;
+		background: #fff;
+	}
+	/*使logo居中*/
+	#header .logo{
+		float: none;
+		margin: 0 auto;
+	}
+	/*点击导航按钮时,导航按钮动画*/
+	#nav .nav_bg {
+		display: none;
+	}
+	#header .nav-btn{
+		float: right;
+		padding: 10px;
+		background-image: none;
+		border-radius: 4px;
+		margin-top: 10px;
+		border: 0;
+		cursor: pointer;
+		display: block;
+		z-index: 999;
+	}
+	#header .nav-btn span {
+		display: block;
+		width: 20px;
+		height: 2px;
+		margin-bottom: 5px;
+		position: relative;
+		background: #cdcdcd;
+		border-radius: 3px;
+		z-index: 1;
+		transform-origin: 20px;
+		transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+	}
+	/*利用transform属性来改变横条的旋转角度*/
+	.nav-btn.toggle-animate span
+	{
+		opacity: 1;
+		transform: rotate(45deg);
+	}
+	.nav-btn.toggle-animate span:nth-last-child(2)
+	{
+		opacity: 0;
+	}
+	.nav-btn.toggle-animate span:nth-last-child(3)
+	{
+		opacity: 1;
+		transform: rotate(-45deg);
+	}
+	#nav{
+		height: 0;
+		width: 100%;
+		background: #fff;
+		overflow: hidden;
+	}
+	#header .nav .nav-li{
+		width: 100%;
+		line-height: 60px;
+		font-size: 12px;
+		float: none;
+	}
+	#header .nav .nav-li a{
+		font-size: 12px;
+	}
+	#header .nav .nav-li a:hover{
+		color: #57A8E4;
+	}
+
+	#main{
+		width: 100%;
+		max-width: 960px;
+		margin-top: 50px;
+	}
+	/*使侧栏掉下去*/
+	#sidebar{
+		width: 95%;
+		float: none;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	#sidebar .sidebar-div{
+		width: 30%;
+		margin-right: 5%;
+		margin-bottom: 0;
+		float: left;
+	}
+	#sidebar .sidebar-div:last-child{
+		margin-right: 0;
+	}
+	#sidebar .sidebar-div h2,
+	#sidebar .sidebar-div ul{
+		text-align: left;
+	}
+}
+@media only screen and (max-width: 768px){
+
+}
+@media only screen and (max-width: 600px){
+
+	/*main部分*/
+	#sidebar{
+		width: 95%;
+		float: none;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	#sidebar .sidebar-div{
+		width: 100%;
+		margin-bottom: 10px;
+		float: left;
+	}
+	#sidebar .sidebar-div h2,
+	#sidebar .sidebar-div ul{
+		text-align: left;
+	}
+}
