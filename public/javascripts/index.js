@@ -87,7 +87,7 @@ $(function(){
 					name: name,
 					email: email,
 					content: content,
-					createTime: date
+					createTime: time
 				},
 				async : true,
 				success : function (text) {
@@ -95,11 +95,14 @@ $(function(){
 						var li = document.createElement('li'),
 							ul = $('#message .message_list').get(0);
 						li.innerHTML = '<p>'+content+'</p><div class="info"><span class="name">'+name+'</span><span class="time">'+time+'</span></div>';
+
 						if(ul.children){
 							ul.insertBefore(li,ul.children[0]);
 						}else{
 							ul.appendChild(li);
 						}
+						li.scrollIntoView(false);
+
 						var marginTop = $(li).css('margin-top');
 						$(li).css('margin-top',- $(li).outerHeight() + 'px').animate({
 							'margin-top' : marginTop
@@ -114,24 +117,38 @@ $(function(){
 			});
 		}
 	}
-	//获取后台留言
-	Sone.ajax({
-		method : 'get',
-		url : '/message',
-		async : true,
-		success : function (data) {
-			var ul = $('#message .message_list').get(0);
-			var reg = /(\d{4}-\d{2}-\d{2}).(\d{2}:\d{2}:\d{2})/;
-			data = JSON.parse(data);
 
-			data.forEach(function(message) {
-				var li = document.createElement('li');
-				var time = reg.exec(message['createTime']).slice(1).join(' ');
-				
-				li.innerHTML = '<p>'+message['content']+'</p><div class="info"><span class="name">'+message['name']+'</span><span class="time">'+time+'</span></div>';
-				ul.insertBefore(li,ul.children[0]);
-			});
-		}
+	// 删除留言
+	$('#message .delete').bind('click', function() {
+		var id = this.dataset.id;
+		var self = this;
+
+		Sone.ajax({
+			method: 'post',
+			url: 'deletemsg',
+			async : true,
+			data: {
+				id: id
+			},
+			success: function(data) {
+				data = JSON.parse(data);
+				var code = data.code;
+				var msg = data.msg;
+
+				if(code === 0) {
+					var li = self.parentNode.parentNode.parentNode;
+					var ul =li.parentNode;
+					var marginTop = $(li).css('margin-top');
+					$(li).animate({
+						height : 0
+					}, function() {
+						ul.removeChild(li);
+					});
+				} else {
+					alert(msg);
+				}
+			}
+		});
 	});
 
 });

@@ -86,35 +86,37 @@
 	background: #FFF;
 }
 #message ul.message_list li{
-	min-height: 40px;
 	width: 580px;
 	line-height: 25px;
 	padding: 5px 10px;
 	margin: 10px auto;
-	border: 1px solid #CCC;
+	border: 1px solid #ddd;
 	position: relative;
 	background: #EEE;
 	letter-spacing: 1px;
+	overflow: hidden;
 }
 #message ul.message_list li .info{
-	display: block;
 	width: 100%;
 	font-size:12px;
 	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
 }
-#message ul.message_list li .name{
-	float: left;
+#message ul.message_list li span{
 	font-size: 12px;
 }
-#message ul.message_list li .time{
-	float: right;
+#message ul.message_list li .name a{
 	font-size: 12px;
+}
+#message .delete {
+	font-size: 12px;
+	color: #00a1d6;
 }
 @media only screen and (max-width: 960px){
 	#main{
 		width: 100%;
 		max-width: 960px;
-		margin-top: 50px;
 	}
 	/*改变留言板*/
 	#message{

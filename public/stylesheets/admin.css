@@ -1,0 +1,37 @@
+/* 登录提示 */
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+#main {
+  text-align: center;
+}
+
+/* 登录表单 */
+.loginForm {
+  width: 300px;
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.loginForm input {
+  width: 90%;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  margin: 5px;
+  text-indent: 5px;
+}
+.loginForm .login,
+.loginForm .logout {
+  background-color: #00a1d6;
+  color: #fff;
+  border-radius: 4px;
+  text-indent: 0;
+}

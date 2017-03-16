@@ -689,7 +689,6 @@ Sone.prototype.animate = function(json,fn){
 			var stop = true;
 
 			for(var attr in json){
-
 				var cur = parseFloat(_this.css(attr));
 
 				//判断属性值是否是自增/自减量

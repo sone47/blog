@@ -103,33 +103,6 @@ ul,ol{
 }
 
 /*
- * 加载/成功
- */
-#loading,#success{
-	position: absolute;
-	width: 135px;
-	height:40px;
-	padding: 5px 10px;
-	background: #FFF;
-	border: 1px solid #CCC;
-    display: none;
-    z-index: 999;
-}
-#loading p,
-#success p{
-	width: 135px;
-	height:40px;
-	background: url("../images/loading2.gif") no-repeat;
-	text-indent: 50px;
-	line-height: 40px;
-	font-size: 12px;
-}
-#success p{
-    background: url("../images/success.png") no-repeat;
-    background-size: 27%;
-}
-
-/*
  * 主要部分
  */
 #main{

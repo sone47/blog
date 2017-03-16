@@ -40,14 +40,6 @@
 		</div>
 	</header>
 
-    <div id="loading">
-        <p>加载中...</p>
-    </div>
-
-    <div id="success">
-        <p>成功!</p>
-    </div>
-
 	<!-- 博文 -->
 	<div id="main">
 		<!-- 轮播器 -->
@@ -66,7 +58,31 @@
 					<input type="button" class="btn" value="留 言">
 				</form>
 			</div>
-			<ul class="message_list"></ul>
+			<ul class="message_list">
+				<% messages.forEach(function(message, index) { %>
+					<% var date = new Date(new Date(message.createTime).toLocaleString()); %>
+					<% var time = date.getFullYear()+'-'+('0'+(date.getMonth()+1)).slice(-2)+'-'+('0'+date.getDate()).slice(-2)+' '+('0'+date.getHours()).slice(-2)+':'+('0'+date.getMinutes()).slice(-2)+':'+('0'+date.getSeconds()).slice(-2); %>
+					<li>
+						<p><%= message.content %></p>
+						<div class="info">
+							<span class="name">
+								<% if(login) { %>
+									<%- '<a href="mailto:'+message.email+'">'+message.name+'</a>' %>
+								<% } else { %>
+									<%= message.name %>
+								<% } %>
+							</span>
+							<span class="time">
+								<%= time %>
+								<% if(login) { %>
+									<%- '<a href="javascript:void(0);" data-id="'+message._id+'" class="delete">删除</a>' %>
+								<% } %>
+							</span>
+						</div>
+						
+					</li>
+				<% }); %>
+			</ul>
 		</div>
 		<!-- 博文(侧边菜单) -->
 		<aside id="sidebar">
@@ -125,7 +141,7 @@
     <!--版权部分-->
     <footer id="footer">
 		Learn more and know less.
-        <span>By <a href="http://nansone.com/about">Sone</a></span>
+        <span>By <a href="https://github.com/sone47">Sone</a></span>
         <small>©2016-2017</small>
     </footer>
 

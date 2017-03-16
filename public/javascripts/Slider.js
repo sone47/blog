@@ -141,14 +141,14 @@ Slider.prototype.bindDOM = function() {
 	};
 
 	var resizeHandler = function() {
-		self.width = window.innerWidth;
-		self.go(self.idx);
-		self.ratio = self.height / self.width;
+		this.width = window.innerWidth;
+		this.go(this.idx);
+		this.ratio = this.height / this.width;
 
 		var lis = outer.getElementsByTagName('li');
 
 		for(var i = 0; i < len; i++) {
-			lis[i].innerHTML = self.imgReponsive(data[i]);
+			lis[i].innerHTML = this.imgReponsive(data[i]);
 		}
 	};
 
@@ -158,7 +158,17 @@ Slider.prototype.bindDOM = function() {
 	btn.addEventListener('click', btnHandler);
 	this.wrap.addEventListener('mouseenter', enterHandler);
 	this.wrap.addEventListener('mouseleave', leaveHandler);
-	window.addEventListener('resize', resizeHandler);
+	window.addEventListener('resize', debounce(resizeHandler, 1000, self));
+
+	function debounce(fn, waitTime, context) {
+      var timeId = null;
+
+      return function() {
+        clearTimeout(timeId);
+
+        timeId = setTimeout(fn.bind(context), waitTime);
+      };
+    }
 };
 
 Slider.prototype.autoPlay = function () {

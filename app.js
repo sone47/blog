@@ -12,20 +12,31 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  secret: 'sones blog',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    
+  }
+}))
 
 app.get('/', router.index);
 app.get('/about', router.about);
 app.get('/article', router.article);
 app.get('/project', router.project);
+app.get('/admin', router.admin);
+app.post('/admin', router.adminLogin);
+app.get('/logout', router.adminLogout);
 app.post('/message', router.postMessage);
-app.get('/message', router.getMessage);
+app.post('/deletemsg', router.deleteMsg);
 
-mongoose.connect('mongodb://localhost/blog');
-
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('open', function() {
-	console.log('connection success');
+mongoose.connect('mongodb://localhost/blog', function(err) {
+	if(err) {
+		console.error.bind(console, 'connection error');
+	} else {
+    console.log('connection success');
+    app.listen(3000);
+  }
 });
-
-app.listen(3000);
